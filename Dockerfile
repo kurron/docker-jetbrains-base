@@ -15,9 +15,9 @@ RUN groupadd --gid 1000 developer && \
     chown -R developer:developer /home/developer
 
 # Set the environment to use the new user account
-USER developer:developer
+#USER developer:developer
+#WORKDIR /home/developer
 ENV HOME /home/developer
-WORKDIR /home/developer
 
 # the user of this image is expected to mount his actual home directory to this one
 VOLUME ["/home/developer"]
