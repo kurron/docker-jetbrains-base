@@ -9,12 +9,15 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
-ENV HOME /home/developer
+# Add the user and group so you don't see those annoying messages when shelled inside the container
+RUN groupadd --gid 1000 developer && \
+    useradd --gid 1000 --uid 1000 --create-home --shell /bin/bash developer
 
-VOLUME ["/home/developer"]
+VOLUME ["/home/vagrant"]
 
 # We mount these so we can run the Docker client from inside the container
 VOLUME ["/var/run/docker.sock"]
 VOLUME ["/bin/docker"]
 VOLUME ["/lib/x86_64-linux-gnu/libapparmor.so.1"]
 
+ENV HOME /home/developer
