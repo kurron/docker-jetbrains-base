@@ -5,9 +5,6 @@ jetbrains:
     volumes:
         - /tmp/.X11-unix:/tmp/.X11-unix
         - /home/vagrant:/home/vagrant
-        - /var/run/docker.sock:/var/run/docker.sock
-        - /usr/bin/docker:/bin/docker
-        - /usr/lib/x86_64-linux-gnu/libapparmor.so.1.1.0:/lib/x86_64-linux-gnu/libapparmor.so.1
     environment:
         DISPLAY: unix:0.0
     user: 1000:1000

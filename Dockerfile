@@ -1,4 +1,4 @@
-FROM kurron/docker-oracle-jdk-8:latest
+FROM azul/zulu-openjdk:latest
 
 MAINTAINER Ron Kurr <kurr@kurron.org>
 
@@ -15,9 +15,6 @@ RUN groupadd --gid 1000 developer && \
 
 VOLUME ["/home/vagrant"]
 
-# We mount these so we can run the Docker client from inside the container
-VOLUME ["/var/run/docker.sock"]
-VOLUME ["/bin/docker"]
-VOLUME ["/lib/x86_64-linux-gnu/libapparmor.so.1"]
-
 ENV HOME /home/developer
+ENV JAVA_HOME /usr/lib/jvm/zulu-8-amd64
+ENV JDK_HOME /usr/lib/jvm/zulu-8-amd64
